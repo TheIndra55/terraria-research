@@ -54,7 +54,8 @@ Send by the client while joining the server, can also be send while playing when
 | 13     | color  | Shirt color         |
 | 16     | color  | Undershirt color    |
 | 19     | color  | Pants color         |
-| 22     | uint8  | Bits flag (see below)   |
+| 22     | color  | Shoes color         |
+| 25     | uint8  | Bits flag (see below)   |
 
 | Offset | Description         |
 |-------:|---------------------|
