@@ -43,7 +43,7 @@ Send by the client while joining the server, can also be send while playing when
 | 0      | uint8  | Player slot         |
 | 1      | uint8  | Cloth style         |
 | 2      | uint8  | Hair texture        |
-| 3      | string | Player name (<20)   |
+| 3      | string | Player name (<=20)  |
 | *      | uint8  | Hair dye            |
 | 1      | uint8  | Hide visuals bits   |
 | 2      | uint8  | Hide visuals bits+8 |
