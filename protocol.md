@@ -43,7 +43,7 @@ Send by the client while joining the server, can also be send while playing when
 | 0      | uint8  | Player slot         |
 | 1      | uint8  | Cloth style         |
 | 2      | uint8  | Hair texture        |
-| 3      | string | Player name         |
+| 3      | string | Player name (<=20)  |
 | *      | uint8  | Hair dye            |
 | 1      | uint8  | Hide visuals bits   |
 | 2      | uint8  | Hide visuals bits+8 |
@@ -74,14 +74,38 @@ Set the client's state on the server to 3
 | Offset | Type | Description |
 |-------:|------|-------------|
 
+## World info answer (7)
+
+Sent by the server after the user requested them (6)
+
+| Offset | Type  | Description   |
+|-------:|-------|---------------|
+| 0      | int32 | Time          |
+| 4      | byte  | Contains 3 bools: is day time, is blood moon, is eclipse   |
+| 5      | byte  | Moon phase    |
+| 6      | int16 | Max tiles X   |
+| 8      | int16 | Max tiles Y   |
+TODO
+
 ## Request spawn tile data (8)
 
 Requests spawn tile data and triggers couple of messages
 
 | Offset | Type  | Description |
 |-------:|-------|-------------|
-| 1      | int32 | Spawn X     |
-| 3      | int32 | Spawn Y     |
+| 0      | int32 | Spawn X     |
+| 4      | int32 | Spawn Y     |
+
+## Row tile update(12)
+
+Sent by the server, contains information about a row of tiles
+
+| Offset | Type  | Description |
+|-------:|-------|-------------|
+| 0      | int16 | Row width   |
+| 2      | int32 | X position  |
+| 6      | int32 | Y position  |
+TODO
 
 ## Spawn player (12)
 
@@ -101,6 +125,30 @@ Set the player spawn position and spawns the player, the server will also greet 
 | 1      | int16 | Player health     |
 | 3      | int16 | Max Player health |
 
+## Toggle PVP (30)
+
+Sent by the client to change PVP status
+
+| Offset | Type  | Description       |
+|-------:|-------|-------------------|
+| 0      | byte  | Player slot       |
+| 1      | byte  | PVP status (0 false, 1 true) |
+
+## Password Request (37)
+
+Sent by the server if the server need a password, must reply with the password (38)
+
+| Offset | Type  | Description       |
+|-------:|-------|-------------------|
+
+## Password Answer (38)
+
+Sent by the server if the server need a password, must reply with the password (38)
+
+| Offset | Type   | Description       |
+|-------:|--------|-------------------|
+| *      | string | Server password   |
+
 ## Set Mana stats (42)
 
 | Offset | Type  | Description       |
@@ -108,3 +156,19 @@ Set the player spawn position and spawns the player, the server will also greet 
 | 0      | uint8 | Player slot       |
 | 1      | int16 | Mana              |
 | 3      | int16 | Max Mana          |
+
+## Join team (45)
+
+Sent by the client to change team
+
+| Offset | Type  | Description       |
+|-------:|-------|-------------------|
+| 0      | byte  | Player slot       |
+| 1      | byte  | Team (0 none, 1 red, 2 green, 3 blue, 4 yellow) |
+
+## Spawn Request (49)
+
+Sent by the server, client must answer with spawn positions (12)
+
+| Offset | Type  | Description   |
+|-------:|-------|---------------|
