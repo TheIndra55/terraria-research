@@ -6,7 +6,7 @@ Players are generally stored in documents/'my games' and contain a `.plr` extens
 
 | Offset | Type       | Description                   |
 |-------:|------------|-------------------------------|
-| 0      | int32      | Unknown, player file version? |
+| 0      | int32      | Game version                  |
 | 4      | uint64     | Re-Logic file format header?  |
 | 12     | uint32     | Revision                      |
 | 16     | uint64     | Is favorite bit field         |
