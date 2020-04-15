@@ -35,11 +35,11 @@ Players are generally stored in documents/'my games' and contain a `.plr` extens
 | 59     | color      | Shoes color                   |
 | 62     | Item[20]   | Armor slots                   |
 | 82     | Item[10]   | Dye slots                     |
-| 92     | Item[58]   | Inventory slots               |
-| 150    | Item[5]    | Unknown, items related to dyes and miscellaneous |
-| 155    | Item[40]   | Bank 1 items                  |
-| 195    | Item[40]   | Bank 2 items                  |
-| 235    | Item[40]   | Bank 3 items                  |
+| 92     | Inventory Item[58] | Inventory slots       |
+| 150    | Misc Item[5]  | Unknown, items related to dyes and miscellaneous |
+| 155    | Bank Item[40] | Bank 1 items               |
+| 195    | Bank Item[40] | Bank 2 items               |
+| 235    | Bank Item[40] | Bank 3 items               |
 | 275    | Buff[22]   | Buff types                    |
 | 297    | Spawn[200] | World spawn locations         |
 | 497    | uint8      | Hotbar locked                 |
@@ -47,3 +47,68 @@ Players are generally stored in documents/'my games' and contain a `.plr` extens
 | 511    | int32      | Angler quests finished        |
 
 TODO
+
+## Types
+
+### Color
+
+Color represents a rgb color which consists of 3 bytes.
+
+| Offset | Type  | Description |
+|-------:|-------|-------------|
+| 0      | uint8 | Red         |
+| 1      | uint8 | Green       |
+| 2      | uint8 | Blue        |
+
+### Item
+
+Item represents an item in a slot, however Terraria can store different info about items. For example all inventory items also include a 'Stack' and 'Ís favorite' while 'armor' and 'dye' does only write 2 properties.
+
+| Offset | Type  | Description |
+|-------:|-------|-------------|
+| 0      | int32 | Item net ID |
+| 4      | uint8 | Item prefix |
+
+### Inventory item
+
+| Offset | Type  | Description |
+|-------:|-------|-------------|
+| 0      | int32 | Item net ID |
+| 4      | int32 | Stack       |
+| 8      | uint8 | Item prefix |
+| 9      | uint8 | Is favorite |
+
+### Misc item
+
+| Offset | Type  | Description         |
+|-------:|-------|---------------------|
+| 0      | int32 | Unknown item net ID |
+| 4      | uint8 | Unknown item prefix |
+| 5      | int32 | Unknown item net id |
+| 9      | uint8 | Unknown item prefix |
+
+### Bank item
+
+| Offset | Type  | Description |
+|-------:|-------|-------------|
+| 0      | int32 | Item net ID |
+| 4      | int32 | Stack       |
+| 8      | uint8 | Item prefix |
+
+### Spawn
+
+Spawn represents a spawn in a world, there can be max 200. If while reading 'Spawn X' is `-1` it should break the loop.
+
+| Offset | Type   | Description |
+|-------:|--------|-------------|
+| 0      | int32  | Spawn X     |
+| 4      | int32  | Spawn Y     |
+| 8      | int32  | World Id    |
+| 12     | string | World name  |
+
+### Buff
+
+| Offset | Type  | Description |
+|-------:|-------|-------------|
+| 0      | int32 | Buff type   |
+| 4      | int32 | Buff time   |
