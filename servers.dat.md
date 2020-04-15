@@ -15,4 +15,4 @@ servers.dat file contains all recently joined servers including ip, worldname an
 |-------:|--------|-------------|
 | 0      | string | World name  |
 | *      | string | IP Address  |
-| *      | string | Port        |
+| *      | int32  | Port        |
