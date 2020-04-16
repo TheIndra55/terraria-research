@@ -136,14 +136,14 @@ Sent by the client to change PVP status
 
 ## Password Request (37)
 
-Sent by the server if the server need a password, must reply with the password (38)
+Sent by the server if a password is needed, must reply with the password (38)
 
 | Offset | Type  | Description       |
 |-------:|-------|-------------------|
 
 ## Password Answer (38)
 
-Sent by the server if the server need a password, must reply with the password (38)
+Sent by the client after a password request (37)
 
 | Offset | Type   | Description       |
 |-------:|--------|-------------------|
