@@ -143,7 +143,7 @@ Sent by the server if the server need a password, must reply with the password (
 
 ## Password Answer (38)
 
-Sent by the server if the server need a password, must reply with the password (38)
+Sent by the client after a password request (37)
 
 | Offset | Type   | Description       |
 |-------:|--------|-------------------|
