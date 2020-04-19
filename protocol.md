@@ -172,3 +172,11 @@ Sent by the server, client must answer with spawn positions (12)
 
 | Offset | Type  | Description   |
 |-------:|-------|---------------|
+
+## Steam Authentification Request (93)
+
+Sent by the client to ask to join the game of another Steam account using P2P
+
+| Offset | Type   | Description   |
+|-------:|--------|---------------|
+| *      | string | Authentification Session Ticket got using [SteamUser.GetAuthSessionTicket](https://partner.steamgames.com/doc/api/ISteamUser#GetAuthSessionTicket) |
