@@ -65,7 +65,13 @@ Send by the client while joining the server, can also be send while playing when
 
 ## Add inventory item (5)
 
-TODO
+| Offset | Type  | Description    |
+|-------:|-------|----------------|
+| 0      | uint8 | Player slot    |
+| 1      | uint8 | Inventory slot |
+| 2      | int16 | Stack          |
+| 4      | uint8 | Item prefix    |
+| 5      | int16 | Item net ID    |
 
 ## Change state (6)
 

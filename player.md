@@ -84,7 +84,7 @@ Item represents an item in a slot, however Terraria can store different info abo
 |-------:|-------|---------------------|
 | 0      | int32 | Unknown item net ID |
 | 4      | uint8 | Unknown item prefix |
-| 5      | int32 | Unknown item net id |
+| 5      | int32 | Unknown item net ID |
 | 9      | uint8 | Unknown item prefix |
 
 ### Bank item
