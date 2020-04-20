@@ -96,7 +96,7 @@ Requests spawn tile data and triggers couple of messages
 | 0      | int32 | Spawn X     |
 | 4      | int32 | Spawn Y     |
 
-## Row tile update(12)
+## Row tile update (10)
 
 Sent by the server, contains information about a row of tiles
 
