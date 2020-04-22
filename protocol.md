@@ -108,9 +108,10 @@ Sent by the server, contains information about a row of tiles
 
 | Offset | Type  | Description |
 |-------:|-------|-------------|
-| 0      | int16 | Row width   |
-| 2      | int32 | X position  |
-| 6      | int32 | Y position  |
+| 0      | int32 | Start X     |
+| 4      | int32 | Start Y     |
+| 8      | int64 | Width       |
+| 16     | int64 | Height      | 
 TODO
 
 ## Spawn player (12)
